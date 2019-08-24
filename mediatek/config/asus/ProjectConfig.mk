@@ -320,7 +320,8 @@ MTK_BENCHMARK_BOOST_TP=no
 MTK_BICR_SUPPORT=yes
 MTK_BQ24156_SUPPORT=no
 MTK_BQ24158_SUPPORT=no
-MTK_BQ24196_SUPPORT=no #yes
+MTK_BQ24196_SUPPORT=yes #ASUS uses BQ24156
+MTK_BQ24156_SUPPORT=no #TODO
 
 # yes : support TI bq27541 external gauge IC
 # no: not support TI bq27541 external gauge IC
@@ -818,7 +819,7 @@ MTK_MSDC_LARGE_DRIVING=no
 # mt5192/93 chip support FM radio control option which is only support on mt6516 platform. mt5192/93 FM on:  MTK_MT519X_FM_SUPPORT = yes mt5192/93 off: MTK_MT519X_FM_SUPPORT = no
 MTK_MT519X_FM_SUPPORT=no
 MTK_MT8193_HDCP_SUPPORT=yes
-MTK_MT8193_HDMI_SUPPORT=yes
+MTK_MT8193_HDMI_SUPPORT=no #yes
 MTK_MT8193_NFI_SUPPORT=no
 MTK_MT8193_SUPPORT=yes
 
@@ -1296,10 +1297,10 @@ MTK_AGPS_APP=yes
 MTK_GPS_SUPPORT=yes
 
 # Specify HDMI external IC type.
-CUSTOM_KERNEL_HDMI=mt8193
+CUSTOM_KERNEL_HDMI= #mt8193
 
 # To control whether enable or disable HDMI feature. If choose yes,  phone's screen can be demonstrated on TV via HDMI cable.
-MTK_HDMI_SUPPORT=yes
+MTK_HDMI_SUPPORT= no #yes
 
 # to choose which boot logo folder would be used, the boot logo folder path is mediatek/custom/common/lk/logo/
 BOOT_LOGO=wxganl
