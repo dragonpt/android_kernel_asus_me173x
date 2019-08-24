@@ -46,10 +46,10 @@ CUSTOM_HAL_EEPROM=dummy_eeprom
 CUSTOM_HAL_FLASHLIGHT=dummy_flashlight
 
 # User space image sensor driver. Define  project used all image sensors. The value is combination of CUSTOM_HAL_MAIN_IMGSENSOR, CUSTOM_HAL_MAIN_BACKUP_IMGSENSOR, CUSTOM_HAL_SUB_IMGSENSOR, and CUSTOM_HAL_SUB_BACKUP_IMGSENSOR
-CUSTOM_HAL_IMGSENSOR=ov5648_mipi_raw ov7675_yuv
+CUSTOM_HAL_IMGSENSOR= #ov5648_mipi_raw ov7675_yuv
 
 # = CUSTOM_HAL_MAIN_LENS +CUSTOM_HAL_MAIN_BACKUP_LENS + CUSTOM_HAL_SUB_LENS + CUSTOM_HAL_SUB_BACKUP_LENS
-CUSTOM_HAL_LENS=dummy_lens
+CUSTOM_HAL_LENS= #dummy_lens
 CUSTOM_HAL_MAIN2_IMGSENSOR=
 
 # User space image sensor  driver: Main camera  (rear camera) used backup sensor related tuning, setting and calibration information. Value is used main backup sensor name.
@@ -59,10 +59,10 @@ CUSTOM_HAL_MAIN_BACKUP_IMGSENSOR=
 CUSTOM_HAL_MAIN_BACKUP_LENS=
 
 # User space image sensor  driver: Main camera (rear camera) used sensor related tuning, setting and calibration information.Value is used main sensor name.
-CUSTOM_HAL_MAIN_IMGSENSOR=ov5648_mipi_raw
+CUSTOM_HAL_MAIN_IMGSENSOR= #ov5648_mipi_raw
 
 # lens driver config for main camera
-CUSTOM_HAL_MAIN_LENS=dummy_lens
+CUSTOM_HAL_MAIN_LENS=#dummy_lens
 
 # M-sensor hal layer library including daemon
 CUSTOM_HAL_MSENSORLIB=mmc328x akm8975 ami304 yamaha530 mag3110 akmd8963 bmm050 hscdtd006
@@ -74,16 +74,16 @@ CUSTOM_HAL_SENSORS=sensor
 CUSTOM_HAL_SUB_BACKUP_IMGSENSOR=
 
 # lens driver config for video telephony camera (2nd solution)
-CUSTOM_HAL_SUB_BACKUP_LENS=dummy_lens
+CUSTOM_HAL_SUB_BACKUP_LENS=#dummy_lens
 
 # User space driver: Sub camera (front camera )used sensor related tuning, setting and calibration information. Value is used sub sensor name.
-CUSTOM_HAL_SUB_IMGSENSOR=ov7675_yuv
+CUSTOM_HAL_SUB_IMGSENSOR=#ov7675_yuv
 
 # lens driver config for video telephony camera
-CUSTOM_HAL_SUB_LENS=dummy_lens
+CUSTOM_HAL_SUB_LENS=#dummy_lens
 
 # accelerometer sensor to detect accelerometer from x y z axis.
-CUSTOM_KERNEL_ACCELEROMETER=mpu6050g
+CUSTOM_KERNEL_ACCELEROMETER=#mpu6050g
 
 # ALSPS sensor driverto detect ambint light and the object is close or far awary from device
 CUSTOM_KERNEL_ALSPS=
@@ -108,13 +108,13 @@ CUSTOM_KERNEL_EEPROM=dummy_eeprom
 CUSTOM_KERNEL_FLASHLIGHT=dummy_flashlight
 
 # gyro driver
-CUSTOM_KERNEL_GYROSCOPE=mpu6050gy
+CUSTOM_KERNEL_GYROSCOPE=#mpu6050gy
 
 # detect headset cable plug in and out
 CUSTOM_KERNEL_HEADSET=accdet
 
 # Kernel space image sensor driver. Define  project used all image sensors .The value is combination of CUSTOM_KERNEL_MAIN_IMGSENSOR, CUSTOM_KERNEL_MAIN_BACKUP_IMGSENSOR, CUSTOM_KERNEL_SUB_IMGSENSOR, and CUSTOM_KERNEL_SUB_BACKUP_IMGSENSOR
-CUSTOM_KERNEL_IMGSENSOR=ov5648_mipi_raw ov7675_yuv
+CUSTOM_KERNEL_IMGSENSOR=#ov5648_mipi_raw ov7675_yuv
 
 # key pad driver to report key event
 CUSTOM_KERNEL_KPD=kpd
@@ -123,7 +123,7 @@ CUSTOM_KERNEL_KPD=kpd
 CUSTOM_KERNEL_LEDS=mt65xx
 
 # same as CUSTOM_HAL_LENS
-CUSTOM_KERNEL_LENS=dummy_lens
+CUSTOM_KERNEL_LENS=#dummy_lens
 
 # compass driver to detect compass raw data and report orientatino data
 #CUSTOM_KERNEL_MAGNETOMETER=
@@ -137,17 +137,17 @@ CUSTOM_KERNEL_MAIN_BACKUP_IMGSENSOR=
 CUSTOM_KERNEL_MAIN_BACKUP_LENS=
 
 # Kernel space image sensor driver:Main camera (rear camera) used sensor driver.Value is used main sensor name.
-CUSTOM_KERNEL_MAIN_IMGSENSOR=ov5648_mipi_raw
+CUSTOM_KERNEL_MAIN_IMGSENSOR=#ov5648_mipi_raw
 
 # lens driver config for main camera
 CUSTOM_KERNEL_MAIN_LENS=dummy_lens
-CUSTOM_KERNEL_MULTIBRIDGE=mt8193
+CUSTOM_KERNEL_MULTIBRIDGE=#mt8193
 
 # RTC driver customization
 CUSTOM_KERNEL_RTC=rtc
 
 # For audio kernel driver's speaker customization folder definition.
-CUSTOM_KERNEL_SOUND=amp_yad_2_spk
+CUSTOM_KERNEL_SOUND=amp_yad #amp_yad_2_spk
 CUSTOM_KERNEL_SSW=ssw_generic
 
 # Kernel space image sensor driver:Sub camera (front camera) used backup sensor driver.Value is used sub backup sensor name.
@@ -157,13 +157,13 @@ CUSTOM_KERNEL_SUB_BACKUP_IMGSENSOR=
 CUSTOM_KERNEL_SUB_BACKUP_LENS=dummy_lens
 
 # Kernel space image sensor driver:Sub camera (front camera) used sensor driver.Value is used sub sensor name.
-CUSTOM_KERNEL_SUB_IMGSENSOR=ov7675_yuv
+CUSTOM_KERNEL_SUB_IMGSENSOR=#ov7675_yuv
 
 # lens driver config for video telephony camera
 CUSTOM_KERNEL_SUB_LENS=dummy_lens
 
 # touch driver  need to report correct touch axes
-CUSTOM_KERNEL_TOUCHPANEL=synaptics_dsx
+CUSTOM_KERNEL_TOUCHPANEL= #synaptics_dsx
 
 # Configuration for USB PHY
 CUSTOM_KERNEL_USB=mt6577
@@ -172,7 +172,7 @@ CUSTOM_KERNEL_USB=mt6577
 CUSTOM_KERNEL_VIBRATOR=vibrator
 
 # To choose LK LCM driver name
-CUSTOM_LK_LCM=N101ICGL21
+CUSTOM_LK_LCM = nt35521_dsi_vdo #lgld070wx3_dsi_vdo
 
 # A mechanism for customer to enable their own sign key.
 CUSTOM_PRELOADER_CUSTOM=custom
@@ -320,7 +320,7 @@ MTK_BENCHMARK_BOOST_TP=no
 MTK_BICR_SUPPORT=yes
 MTK_BQ24156_SUPPORT=no
 MTK_BQ24158_SUPPORT=no
-MTK_BQ24196_SUPPORT=yes
+MTK_BQ24196_SUPPORT=no #yes
 
 # yes : support TI bq27541 external gauge IC
 # no: not support TI bq27541 external gauge IC
@@ -770,7 +770,7 @@ MTK_LCA_SUPPORT=no
 MTK_LCEEFT_SUPPORT=yes
 
 # To set the angle between dimension of UI layout and LCM scan direction
-MTK_LCM_PHYSICAL_ROTATION=0
+MTK_LCM_PHYSICAL_ROTATION= 180 #0
 
 # To enable/disable feature Google default live Wallpapers on the project. If MTK_LIVEWALLPAPER_APP = yes all Google default live wallpapers will be built into bootimage and users can use this feature on their device, vice versa.
 MTK_LIVEWALLPAPER_APP=yes
@@ -1305,10 +1305,10 @@ MTK_HDMI_SUPPORT=yes
 BOOT_LOGO=wxganl
 
 # To choose kernel LCM driver name
-CUSTOM_KERNEL_LCM=N101ICGL21
+CUSTOM_KERNEL_LCM = nt35521_dsi_vdo #lgld070wx3_dsi_vdo
 
 # To choose uboot LCM driver name
-CUSTOM_UBOOT_LCM=N101ICGL21
+CUSTOM_UBOOT_LCM = nt35521_dsi_vdo #lgld070wx3_dsi_vdo
 
 # To set LCM resolution height size
 LCM_HEIGHT=800
