@@ -1,4 +1,6 @@
 #include <mach/mt_typedefs.h>
+#define CHANGE_TRACKING_POINT
+#define CUST_TRACKING_POINT 0
 
 #define TEMPERATURE_T0                  110
 #define TEMPERATURE_T1                  0
