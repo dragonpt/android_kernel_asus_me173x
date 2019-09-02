@@ -630,7 +630,7 @@ s32 gtp_read_version(struct i2c_client *client, u16 *version)
     }
 
     //printk("IC VERSION:%c%c%c%c_%02x%02x",
-             buf[2], buf[3], buf[4], buf[5], buf[7], buf[6]);
+             //buf[2], buf[3], buf[4], buf[5], buf[7], buf[6]);
 
     return ret;
 }
