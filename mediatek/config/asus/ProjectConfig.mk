@@ -163,7 +163,7 @@ CUSTOM_KERNEL_SUB_IMGSENSOR=#ov7675_yuv
 CUSTOM_KERNEL_SUB_LENS=dummy_lens
 
 # touch driver  need to report correct touch axes
-CUSTOM_KERNEL_TOUCHPANEL= #synaptics_dsx
+CUSTOM_KERNEL_TOUCHPANEL= GT927
 
 # Configuration for USB PHY
 CUSTOM_KERNEL_USB=mt6577
@@ -771,7 +771,7 @@ MTK_LCA_SUPPORT=no
 MTK_LCEEFT_SUPPORT=yes
 
 # To set the angle between dimension of UI layout and LCM scan direction
-MTK_LCM_PHYSICAL_ROTATION= 180 #0
+MTK_LCM_PHYSICAL_ROTATION= 180
 
 # To enable/disable feature Google default live Wallpapers on the project. If MTK_LIVEWALLPAPER_APP = yes all Google default live wallpapers will be built into bootimage and users can use this feature on their device, vice versa.
 MTK_LIVEWALLPAPER_APP=yes
@@ -1312,10 +1312,10 @@ CUSTOM_KERNEL_LCM = nt35521_dsi_vdo #lgld070wx3_dsi_vdo
 CUSTOM_UBOOT_LCM = nt35521_dsi_vdo #lgld070wx3_dsi_vdo
 
 # To set LCM resolution height size
-LCM_HEIGHT=800
+LCM_HEIGHT=1280
 
 # To set LCM resolution width size
-LCM_WIDTH=1280
+LCM_WIDTH=800
 
 # To control resource build. The value would be assigned to PRODUCT_LOCALES under build/target/product/XXX.mk (XXX is each project's name)
 MTK_PRODUCT_LOCALES=en_US es_ES zh_CN zh_TW ru_RU pt_BR fr_FR de_DE tr_TR it_IT in_ID ms_MY vi_VN ar_EG  th_TH  pt_PT   nl_NL el_GR hu_HU tl_PH ro_RO cs_CZ hdpi ldpi mdpi xhdpi
