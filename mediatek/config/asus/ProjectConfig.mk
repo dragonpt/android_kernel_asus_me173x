@@ -318,10 +318,9 @@ MTK_BEAM_PLUS_SUPPORT=no
 # no, turn off benchmark boost thermal policy.
 MTK_BENCHMARK_BOOST_TP=no
 MTK_BICR_SUPPORT=yes
-MTK_BQ24156_SUPPORT=no
+MTK_BQ24156_SUPPORT=yes #no TODO
 MTK_BQ24158_SUPPORT=no
-MTK_BQ24196_SUPPORT=yes #ASUS uses BQ24156
-MTK_BQ24156_SUPPORT=no #TODO
+MTK_BQ24196_SUPPORT=no  #yes ASUS uses BQ24156
 
 # yes : support TI bq27541 external gauge IC
 # no: not support TI bq27541 external gauge IC

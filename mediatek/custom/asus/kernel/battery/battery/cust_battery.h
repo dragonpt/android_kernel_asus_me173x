@@ -5,6 +5,34 @@
 #define COMPAL_SMART_CHARGING_SUPPORT
 #endif
 
+//superdragonpt added //TODO
+typedef enum
+{
+	Cust_CC_1600MA = 0x0,
+	Cust_CC_1500MA = 0x1,
+	Cust_CC_1400MA = 0x2,
+	Cust_CC_1300MA = 0x3,
+	Cust_CC_1200MA = 0x4,
+	Cust_CC_1100MA = 0x5,
+	Cust_CC_1000MA = 0x6,
+	Cust_CC_900MA  = 0x7,
+	Cust_CC_800MA  = 0x8,
+	Cust_CC_700MA  = 0x9,
+	Cust_CC_650MA  = 0xA,
+	Cust_CC_550MA  = 0xB,
+	Cust_CC_450MA  = 0xC,
+	Cust_CC_400MA  = 0xD,
+	Cust_CC_200MA  = 0xE,
+	Cust_CC_70MA   = 0xF,
+//TODO
+    //Cust_CC_100MA = 0xF,
+    //Cust_CC_500MA = 0xB,
+    //Cust_CC_1550MA = 0x1,
+//TODO
+	Cust_CC_0MA	   = 0xDD
+}cust_charging_current_enum;
+//superdragonpt added, End
+
 typedef struct{	
 	unsigned int BattVolt;
 	unsigned int BattPercent;
