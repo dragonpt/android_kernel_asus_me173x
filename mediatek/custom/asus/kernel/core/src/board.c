@@ -96,6 +96,7 @@ void mt_power_off(void)
 /*=======================================================================*/
 /*GPS driver*/
 /*FIXME: remove mt3326 notation */
+#if 0 //superdragonpt: ASUS does not uses MT3332 gps on combo chip
 #ifdef MTK_GPS_SUPPORT
 /*
 #if defined(MTK_GPS_MT6620)||defined(MTK_GPS_MT6628)
@@ -140,6 +141,14 @@ struct mt3326_gps_hardware mt3326_gps_hw = {
 };
 #endif
 #endif
+#endif //superdragonpt
+
+//superdragonpt added for ASUS GPS fix
+struct mt3326_gps_hardware mt3326_gps_hw = {
+    .ext_power_on =  NULL,
+    .ext_power_off = NULL,
+};
+//superdragonpt added for ASUS GPS fix. end
 /*=======================================================================*/
 /* Board Specific Devices Init                                           */
 /*=======================================================================*/

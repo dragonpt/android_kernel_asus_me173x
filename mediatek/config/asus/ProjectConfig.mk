@@ -635,7 +635,7 @@ MTK_GAMELOFT_SD_APP=no
 MTK_GOOGLEOTA_SUPPORT=yes
 
 # To identify which GPS chip be used on current platform.
-MTK_GPS_CHIP=MTK_GPS_MT3332 MTK_GPS_MT6628
+MTK_GPS_CHIP=MTK_GPS_MT6628
 
 # This feature option is used to distinguish the version of GPU. Different GPU has different shader compiler. We can use correctly shader compiler to compiler our shaders by this option
 MTK_GPU_CHIP=SGX544_115
