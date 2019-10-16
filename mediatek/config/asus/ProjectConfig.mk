@@ -83,7 +83,7 @@ CUSTOM_HAL_SUB_IMGSENSOR=#ov7675_yuv
 CUSTOM_HAL_SUB_LENS=#dummy_lens
 
 # accelerometer sensor to detect accelerometer from x y z axis.
-CUSTOM_KERNEL_ACCELEROMETER=#mpu6050g
+CUSTOM_KERNEL_ACCELEROMETER=KXTJ2_1009
 
 # ALSPS sensor driverto detect ambint light and the object is close or far awary from device
 CUSTOM_KERNEL_ALSPS=
