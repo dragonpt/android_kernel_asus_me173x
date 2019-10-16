@@ -35,7 +35,7 @@
 #include <linux/module.h>
 #include "partition_define.h"
 struct excel_info PartInfo[PART_NUM]={
-			{"preloader",12582912,0x0, EMMC, 0,BOOT_1},
+			{"preloader",6291456,0x0, EMMC, 0,BOOT_1},
 			{"mbr",524288,0xc00000, EMMC, 0,USER},
 			{"ebr1",524288,0xc80000, EMMC, 1,USER},
 			{"pmt",4194304,0xd00000, EMMC, 0,USER},
@@ -46,14 +46,14 @@ struct excel_info PartInfo[PART_NUM]={
 			{"seccfg",131072,0x2d00000, EMMC, 0,USER},
 			{"uboot",393216,0x2d20000, EMMC, 0,USER},
 			{"bootimg",6291456,0x2d80000, EMMC, 0,USER},
-			{"recovery",10485760,0x3380000, EMMC, 0,USER},
-			{"sec_ro",6291456,0x3d80000, EMMC, 4,USER},
-			{"misc",524288,0x4380000, EMMC, 0,USER},
-			{"logo",3145728,0x4400000, EMMC, 0,USER},
-			{"expdb",10485760,0x4700000, EMMC, 0,USER},
-			{"android",1073741824,0x5100000, EMMC, 5,USER},
-			{"cache",734003200,0x45100000, EMMC, 6,USER},
-			{"usrdata",1073741824,0x70d00000, EMMC, 7,USER},
+			{"recovery",6291456,0x3380000, EMMC, 0,USER},
+			{"sec_ro",6291456,0x3980000, EMMC, 4,USER},
+			{"misc",524288,0x3f80000, EMMC, 0,USER},
+			{"logo",3145728,0x4000000, EMMC, 0,USER},
+			{"expdb",10485760,0x4300000, EMMC, 0,USER},
+			{"android",681574400,0x4d00000, EMMC, 5,USER},
+			{"cache",132120576,0x64d00000, EMMC, 6,USER},
+			{"usrdata",1073741824,0xa4d00000, EMMC, 7,USER},
 			{"bmtpool",22020096,0xFFFF00a8, EMMC, 0,USER},
  };
 EXPORT_SYMBOL(PartInfo);
