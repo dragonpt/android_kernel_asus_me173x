@@ -1095,7 +1095,7 @@ MTK_TB_HW_DEBUG=no
 MTK_TB_WIFI_3G_MODE=WIFI_ONLY
 
 # MTK_FLIGHT_MODE_POWER_OFF_MD is used to control if modem is powered off when entering flight mode MTK_TELEPHONY_MODE is used for specify current telephony mode MTK_FIRST_MD is used to specify the high priority modem
-MTK_TELEPHONY_MODE=3
+MTK_TELEPHONY_MODE=1
 
 # This option is for Tencent mobile manager(normal vesion).
 MTK_TENCENT_MOBILE_MANAGER_NORMAL_SUPPORT=no
