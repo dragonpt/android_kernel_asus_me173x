@@ -57,7 +57,7 @@
 #define CUST_EINT_DEBOUNCE_ENABLE           1
 #define CUST_EINT_EDGE_SENSITIVE            0
 #define CUST_EINT_LEVEL_SENSITIVE           1
-#define SDIO_ERROR_BYPASS
+//#define SDIO_ERROR_BYPASS
 //////////////////////////////////////////////////////////////////////////////
 
 
@@ -1204,11 +1204,13 @@ struct msdc_saved_para
 	u8							ckgen_msdc_dly_sel;
 };
 
+#if 0
 struct msdc_error_record{
     struct mmc_command         cmd;
     struct mmc_data            data;
     struct mmc_command         stop;
 };
+#endif
 
 struct msdc_host
 {
