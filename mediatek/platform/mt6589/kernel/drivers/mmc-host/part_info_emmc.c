@@ -35,7 +35,6 @@
 #include "part_info_emmc.h"
 struct excel_info PartInfoEmmc[PART_NUM]={
 			{"preloader",262144,0x0,0},
-			{"dsp_bl",1966080,0x40000,0},
 			{"mbr",16384,0x220000,0},
 			{"ebr1",376832,0x224000,1},
 			{"pmt",4194304,0x280000,0},
@@ -48,10 +47,8 @@ struct excel_info PartInfoEmmc[PART_NUM]={
 			{"misc",393216,0x1c00000,0},
 			{"logo",3145728,0x1c60000,0},
 			{"expdb",655360,0x1f60000,0},
-			{"ebr2",16384,0x2000000,0},
 			{"android",537919488,0x2004000,6},
 			{"cache",537919488,0x22104000,2},
 			{"usrdata",537919488,0x42204000,3},
-			{"fat",0,0x62304000,4},
 			{"bmtpool",10485760,0xFFFF0050,0},
  };
