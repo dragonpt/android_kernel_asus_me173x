@@ -9,7 +9,7 @@
 #ifdef MTK_EMMC_SUPPORT
 #define CFG_DEV_MSDC0
 #endif
-#define CFG_DEV_MSDC1
+//#define CFG_DEV_MSDC1
 //#define CFG_DEV_MSDC2
 #define CFG_DEV_MSDC3
 //#define CFG_DEV_MSDC4
