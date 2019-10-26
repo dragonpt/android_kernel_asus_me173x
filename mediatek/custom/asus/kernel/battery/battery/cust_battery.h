@@ -80,12 +80,8 @@ VBAT_TO_PERCENT Batt_VoltToPercent_Table[] = {
 
 /* Precise Tunning */
 #define BATTERY_AVERAGE_SIZE 	30 //12, 15
-//12
-//15
-//30
-//60
 
-/* Common setting */
+/* Common setting - ADC resistor*/
 #define R_CURRENT_SENSE 2				// 0.2 Ohm
 #define R_BAT_SENSE 4					// times of voltage
 #define R_I_SENSE 4						// times of voltage
@@ -97,8 +93,8 @@ VBAT_TO_PERCENT Batt_VoltToPercent_Table[] = {
 #define V_CHARGER_ENABLE 0				// 1:ON , 0:OFF
 
 /* Teperature related setting */
-#define RBAT_PULL_UP_R             39000
-#define RBAT_PULL_UP_VOLT          1800
+#define RBAT_PULL_UP_R             24000
+#define RBAT_PULL_UP_VOLT          2800
 #define TBAT_OVER_CRITICAL_LOW     67790
 #define BAT_TEMP_PROTECT_ENABLE    1
 #define BAT_NTC_10 1
