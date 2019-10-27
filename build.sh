@@ -183,13 +183,13 @@ ${mkimg} ${kernel_zimg} KERNEL > kernelFile
 echo "**** Successfully built kernel ****"
 
 echo "**** Copying kernel to /build_result/kernel/ ****"
-mkdir -p ../build_result/kernel/
-cp kernelFile ../build_result/kernel/boot.img-kernel
+mkdir -p ./build_result/kernel/
+cp kernelFile ./build_result/kernel/boot.img-kernel
 
 echo "**** Copying all built modules (.ko) to /build_result/modules/ ****"
-mkdir -p ../build_result/modules/
-for file in $(find ../ -name *.ko); do
- cp $file ../build_result/modules/
+mkdir -p ./build_result/modules/
+for file in $(find ./ -name *.ko); do
+ cp $file ./build_result/modules/
 done
 
 echo "**** Patching all built modules (.ko) in /build_result/modules/ ****"
