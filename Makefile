@@ -199,7 +199,7 @@ export KBUILD_BUILDHOST := $(SUBARCH)
 #ARCH		?= $(SUBARCH)
 #CROSS_COMPILE	?= $(CONFIG_CROSS_COMPILE:"%"=%)
 ARCH		?= arm
-CROSS_COMPILE	?= ../toolchain/arm-unknown-linux-gnueabi-linaro_4.6.4-2013.05/bin/arm-gnueabi-
+CROSS_COMPILE	?= ./toolchain/arm-unknown-linux-gnueabi-linaro_4.6.4-2013.05/bin/arm-gnueabi-
 
 # Architecture as present in compile.h
 UTS_MACHINE 	:= $(ARCH)
