@@ -34,7 +34,7 @@
 
 #define LCM_ID_NT35521 (0x80)
 
-#define GPIO_LCD_PANEL_RESETINNO    GPIO142
+#define GPIO_LCD_PANEL_RESETINNO    GPIO142 //reset
 // ---------------------------------------------------------------------------
 //  Local Variables
 // ---------------------------------------------------------------------------
@@ -884,7 +884,7 @@ static void lcm_get_params(LCM_PARAMS *params)
    //video mode timing
 
     params->dsi.PS						= LCM_PACKED_PS_24BIT_RGB888;
-    params->dsi.word_count = 720*3;	
+    //params->dsi.word_count = 720*3;	
 	params->dsi.packet_size=512;
     params->dsi.vertical_sync_active	= 2;
     params->dsi.vertical_backporch		= 12;
@@ -896,8 +896,10 @@ static void lcm_get_params(LCM_PARAMS *params)
     params->dsi.horizontal_frontporch	= 40;
     params->dsi.horizontal_active_pixel	= FRAME_WIDTH;
 
-    //improve clk quality
-    params->dsi.PLL_CLOCK 				= LCM_DSI_6589_PLL_CLOCK_208;
+		// Bit rate calculation
+		params->dsi.pll_select=1;
+		//1 Every lane speed
+		params->dsi.PLL_CLOCK = LCM_DSI_6589_PLL_CLOCK_240_5; //LCM_DSI_6589_PLL_CLOCK_208;
     params->dsi.compatibility_for_nvk 	= 1;
 
 }
@@ -929,9 +931,16 @@ static void lcm_suspend_power(void)
 #ifndef BUILD_LK
 	printk("[DDP] %s\n", __func__);
 #endif
+
+		MDELAY(105);
+		mt_set_gpio_mode(GPIO_LCD_PANEL_RESETINNO, GPIO_MODE_00);
+		mt_set_gpio_dir(GPIO_LCD_PANEL_RESETINNO, GPIO_DIR_OUT);
+		mt_set_gpio_out(GPIO_LCD_PANEL_RESETINNO, GPIO_OUT_ZERO);
+		MDELAY(1);
+
 		lcd_power_en(0);
-		MDELAY(1005);
-	}
+		MDELAY(1);
+}
 
 
 static void lcm_suspend(void)
@@ -940,11 +949,13 @@ static void lcm_suspend(void)
 #ifndef BUILD_LK
 	printk("[DDP] %s\n", __func__);
 #endif
-		data_array[0]=0x00280500; // Display Off
+		/* set display off */
+		data_array[0] = 0x00280500;
 		dsi_set_cmdq(data_array, 1, 1);
-		MDELAY(1);
+		MDELAY(10);
 
-		data_array[0] = 0x00111500; // Sleep In
+		/* enter sleep mode */
+		data_array[0] = 0x00100500;
 		dsi_set_cmdq(data_array, 1, 1);
 	}
 
@@ -954,15 +965,10 @@ static void lcm_resume_power(void)
 #ifndef BUILD_LK
 	printk("[DDP] %s\n", __func__);
 #endif
+		MDELAY(8);
 		lcd_power_en(1);
 		MDELAY(1);
-		SET_RESET_PIN(1);
-		SET_RESET_PIN(0);
-		MDELAY(1);
-		SET_RESET_PIN(1);
-		MDELAY(115);
 	}
-
 
 static void lcm_resume(void)
 {
@@ -971,41 +977,35 @@ static void lcm_resume(void)
 #ifndef BUILD_LK
 	printk("[DDP] %s\n", __func__);
 #endif
+
+		/* exit sleep mode */
+		data_array[0] = 0x00110500;
+		dsi_set_cmdq(data_array, 1, 1);
+		MDELAY(10);
+
+		/* set display on */
+		data_array[0] = 0x00290500;
+		dsi_set_cmdq(data_array, 1, 1);
+		MDELAY(50);
+
+		mt_set_gpio_mode(GPIO_LCD_PANEL_RESETINNO, GPIO_MODE_00);
+		mt_set_gpio_dir(GPIO_LCD_PANEL_RESETINNO, GPIO_DIR_OUT);
+		mt_set_gpio_out(GPIO_LCD_PANEL_RESETINNO, GPIO_OUT_ONE);
+
+		mt_set_gpio_mode(GPIO_LCD_PANEL_RESETINNO, GPIO_MODE_00);
+		mt_set_gpio_dir(GPIO_LCD_PANEL_RESETINNO, GPIO_DIR_OUT);
+		mt_set_gpio_out(GPIO_LCD_PANEL_RESETINNO, GPIO_OUT_ZERO);
+		MDELAY(10);
+
+		mt_set_gpio_mode(GPIO_LCD_PANEL_RESETINNO, GPIO_MODE_00);
+		mt_set_gpio_dir(GPIO_LCD_PANEL_RESETINNO, GPIO_DIR_OUT);
+		mt_set_gpio_out(GPIO_LCD_PANEL_RESETINNO, GPIO_OUT_ONE);
+		MDELAY(120);
+
 		init_lcm_registers();
-	}
+		MDELAY(8);
 
-#if 0
-static unsigned int lcm_compare_id(void)
-{
-	unsigned int id=0;
-	unsigned char buffer[2];
-	unsigned int array[16];
-
-	SET_RESET_PIN(1);
-	SET_RESET_PIN(0);
-	MDELAY(1);
-
-	SET_RESET_PIN(1);
-	MDELAY(20);
-
-	array[0] = 0x00033700;// read id return two byte,version and id
-	dsi_set_cmdq(array, 1, 1);
-
-	read_reg_v2(0x04, buffer, 2);
-	id = buffer[1]; //we only need ID
-
-    #ifdef BUILD_LK
-		printf("%s, LK nt35521 debug: nt35521 id = 0x%08x\n", __func__, id);
-    #else
-		printk("%s, kernel nt35521 horse debug: nt35521 id = 0x%08x\n", __func__, id);
-    #endif
-
-    if(id == LCM_ID_NT35521)
-        return 1;
-    else
-        return 0;
 }
-#endif
 
 
 
