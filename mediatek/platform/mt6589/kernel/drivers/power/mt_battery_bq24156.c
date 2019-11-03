@@ -1534,13 +1534,13 @@ void select_charging_current_bcct(void)
         if (g_bcct_value < 100) {
             g_temp_CC_value = Cust_CC_0MA;
         } else if(g_bcct_value < 325) {
-            g_temp_CC_value = Cust_CC_70MA;
+            g_temp_CC_value = Cust_CC_200MA;
         } else if(g_bcct_value < 500) {
-            g_temp_CC_value = Cust_CC_450MA;
+            g_temp_CC_value = Cust_CC_650MA;
         } else if(g_bcct_value == 500) {
-            g_temp_CC_value = Cust_CC_550MA;
+            g_temp_CC_value = Cust_CC_650MA;
         } else {
-            g_temp_CC_value = Cust_CC_550MA;
+            g_temp_CC_value = Cust_CC_650MA;
        }
         	  
         bq24156_set_ac_current();    	  
@@ -1556,19 +1556,19 @@ void select_charging_current_bcct(void)
         }
         else if(g_bcct_value < 325)
         {
-            g_temp_CC_value = Cust_CC_70MA;
+            g_temp_CC_value = Cust_CC_200MA;
         }
         else if(g_bcct_value < 500)
         {
-            g_temp_CC_value = Cust_CC_450MA;
+            g_temp_CC_value = Cust_CC_650MA;
         }
         else if(g_bcct_value < 550)
         {
-            g_temp_CC_value = Cust_CC_550MA;
+            g_temp_CC_value = Cust_CC_650MA;
         }
         else if(g_bcct_value < 650)        
         {
-            g_temp_CC_value = Cust_CC_550MA;
+            g_temp_CC_value = Cust_CC_650MA;
         }        
         else if(g_bcct_value < 750)
         {
@@ -1576,23 +1576,23 @@ void select_charging_current_bcct(void)
         }    
         else if(g_bcct_value < 850)        
         {
-            g_temp_CC_value = Cust_CC_800MA;
+            g_temp_CC_value = Cust_CC_1000MA;
         }           
         else if(g_bcct_value < 950)        
         {
-            g_temp_CC_value = Cust_CC_900MA;
+            g_temp_CC_value = Cust_CC_1000MA;
         }             
         else if(g_bcct_value < 1050)        
         {
-            g_temp_CC_value = Cust_CC_1000MA;
+            g_temp_CC_value = Cust_CC_1200MA;
         }            
         else if(g_bcct_value < 1150)        
         {
-            g_temp_CC_value = Cust_CC_1100MA;
+            g_temp_CC_value = Cust_CC_1200MA;
         }        
         else if(g_bcct_value < 1250)        
         {
-            g_temp_CC_value = Cust_CC_1200MA;
+            g_temp_CC_value = Cust_CC_1300MA;
         }          
         else if(g_bcct_value < 1350)        
         {
@@ -1600,22 +1600,13 @@ void select_charging_current_bcct(void)
         }         
         else if(g_bcct_value < 1450)        
         {
-            g_temp_CC_value = Cust_CC_1400MA;
+            g_temp_CC_value = Cust_CC_1300MA;
         }         
-        //else if(g_bcct_value < 1550)        
-        else (g_bcct_value < 1550);        
-        {
-            g_temp_CC_value = Cust_CC_1500MA;
-        }         
-        /*else
-        {
-            g_temp_CC_value = Cust_CC_1550MA;
-        }*/   	
         //---------------------------------------------------
     }
     else
     {
-        g_temp_CC_value = Cust_CC_550MA;
+        g_temp_CC_value = Cust_CC_650MA;
     } 
 
     bq24156_set_ac_current(); 
@@ -1736,10 +1727,6 @@ void bq24156_set_ac_current(void)
             reg_set_value = 0xA; //BQ24156 maximum is 1.55A, p.29, table 7
             bq24156_set_input_charging_current(0x3); // no input limit
             break;
-        /*case Cust_CC_1550MA:
-            reg_set_value = 0xA; //1550mA
-            bq24156_set_input_charging_current(0x3); // no input limit
-            break;*/
         case Cust_CC_1500MA:
             reg_set_value = 0x9; //1450mA
             bq24156_set_input_charging_current(0x3); // no input limit
@@ -1781,10 +1768,6 @@ void bq24156_set_ac_current(void)
             reg_set_value = 0x0; //550mA
             bq24156_set_input_charging_current(0x2); // 800mA input limit
             break;
-        /*case Cust_CC_500MA:
-            reg_set_value = 0x0; //550mA
-            bq24156_set_input_charging_current(0x1); // 500mA input limit
-            break;*/
         case Cust_CC_450MA:
         case Cust_CC_400MA:
             /* LOW_CHG=1, get lowest current 325mA, p.30 */
@@ -1792,12 +1775,7 @@ void bq24156_set_ac_current(void)
             low_chg = 1;
             bq24156_set_input_charging_current(0x1); // 500mA input limit
             break;
-        case Cust_CC_200MA:
-        //case Cust_CC_100MA:
-            //reg_set_value = 0x0; //550mA
-            //low_chg = 1; /* LOW_CHG=1, get lowest current 325mA, p.30 */
-            //bq24156_set_input_charging_current(0x0); // 100mA input limit
-            //break;                     
+        case Cust_CC_200MA:                    
         case Cust_CC_70MA:
             /* current too low, disable charger */
             xlog_printk(ANDROID_LOG_INFO, POWER_BATTERY_TAG, "[BATTERY:bq24156] current(%d) too low current, disable charger\r\n", g_temp_CC_value);
